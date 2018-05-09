@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插值</title>
+</head>
+<body>
+    <div id="app">
+        <div>Message:{{msg}}</div>
+        <div v-once>noChangeMessage:{{noChange}}</div>
+        <button @click="change">点我会变</button>
+        <button v-bind:disabled="isButtonDisabled">不可用</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script text/javascript>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'我会变',
+                noChange:'我不会变!'
+            },
+            methods:{
+                change:function(){
+                    this.msg = '我变啦！',
+                    this.noChange = '我也变啦！'
+                },
+               isButtonDisabled
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 绑定内联样式</title>
+</head>
+<body>
+    <div id="app">
+        <!--  对象语法 -->
+        <div v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">对象语法</div>
+        <div v-bind:style="styleObject">对象语法</div>
+        <!-- 数组语法 -->
+        <div v-bind:style="[baseStyles,overridingStyles]">数组语法</div>
+        <!-- 自动添加前缀 -->
+        <!-- <div v-bind:style="">自动添加前缀</div> -->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                activeColor:'red',
+                fontSize:30,
+                styleObject:{
+                    color:'red',
+                    fontSize:'13px'
+                },
+                baseStyles:{
+                    color:'green',
+                },
+                overridingStyles:{
+                    background:'yellow'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <!-- 用v-for把一个数组对应为一组元素 -->
+    <section>
+        <ul id="example-1">
+            <li v-for="item in items">
+                {{item.message}}
+            </li>
+        </ul>
+        <script>
+            var example1 = new Vue({
+                el: '#example-1',
+                data: {
+                    items: [
+                        { message: 'Foo' },
+                        { message: 'Bar' }
+                    ]
+                }
+            });
+            // example1.items = example1.items.filter(function(item){
+            //     return item.message.match(/Foo/);
+            // })
+        </script>
+        <ul id="example-2">
+            <li v-for="(item,index) in items">
+                {{parentMessage}} - {{index}} - {{item.message}}
+            </li>
+        </ul>
+        <script>
+            var example2 = new Vue({
+                el: '#example-2',
+                data: {
+                    parentMessage: 'Parent',
+                    items: [
+                        { message: 'Foo' },
+                        { message: 'Bar' }
+                    ]
+                }
+            })
+        </script>
+    </section>
+    <!-- 一个对象的v-for -->
+    <section>
+        <article id="v-for-object">
+            <ul class="demo">
+                <li v-for="value in object">
+                    {{value}}
+                </li>
+            </ul>
+            <div v-for="(value,key) in object">
+                {{key}} : {{value}}
+            </div>
+            <div v-for="(value,key,index) in object">
+                {{index}}.{{key}}:{{value}}
+            </div>
+        </article>
+        <script>
+            new Vue({
+                el: '#v-for-object',
+                data: {
+                    object: {
+                        firstName: 'John',
+                        lastName: 'Doe',
+                        age: 30
+                    }
+                }
+            })
+        </script>
+    </section>
+</body>
+
+</html>
