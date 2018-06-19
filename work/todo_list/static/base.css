@@ -1,0 +1,20 @@
+.btn{
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(225,225,225,0.2),0 1px 2px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+.btn-danger{
+    color: #fff;
+    background-color: #DA4F46;
+}
+.btn:focus{
+    outline: none;
+}
