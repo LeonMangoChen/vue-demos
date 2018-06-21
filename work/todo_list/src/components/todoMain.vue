@@ -1,35 +1,26 @@
 <template>
     <ul class="todo-main">
-        <li>
-            <label>
-                <input type="checkbox">
-                <span>xxxxx</span>
-            </label>
-            <button class="btn btn-danger" style="display:none">删除</button>
-        </li>
-        <li>
-            <label>
-                <input type="checkbox">
-                <span>yyyyy</span>
-            </label>
-            <button class="btn btn-danger" style="display:none">删除</button>
-        </li>
+        <todo-item v-for="todo in todos" :todo="todo"></todo-item>
     </ul>
 </template>
 
 <script>
+import todoItem from './todoItem'
 export default {
+  props: ['todos'],
+  components: { todoItem }
 }
 </script>
 
 <style>
-.todo-main{
+.todo-main {
     margin-left: 0px;
     border: 1px solid #ddd;
     border-radius: 2px;
-    padding:0px;
+    padding: 0px;
 }
-.todo-empty{
+
+.todo-empty {
     height: 40px;
     line-height: 40px;
     border: 1px solid #ddd;
@@ -38,26 +29,30 @@ export default {
     margin-top: 10px;
 }
 
-li{
+li {
     list-style: none;
     height: 36px;
     line-height: 36px;
     padding: 0 5px;
     border-bottom: 1px solid #ddd;
 }
-li label{
+
+li label {
     float: left;
     cursor: pointer;
 }
-li button{
+
+li button {
     float: left;
     display: none;
     margin-top: 3px;
 }
-li:before{
-    content:inherit;
+
+li:before {
+    content: inherit;
 }
-li:last-child{
+
+li:last-child {
     border-bottom: none;
 }
 </style>

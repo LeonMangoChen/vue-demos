@@ -2,7 +2,7 @@
   <div id="app">
     <div class="todo-container">
       <div class="todo-wrap">
-        <todo-header></todo-header>
+        <todo-header :todos="todos"></todo-header>
         <todo-main :todos="todos"></todo-main>
         <todo-footer></todo-footer>
       </div>
@@ -29,14 +29,6 @@ export default {
 </script>
 
 <style>
-#app {
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;*/
-}
 .todo-container{
   width: 600px;
   margin: 0 auto;
