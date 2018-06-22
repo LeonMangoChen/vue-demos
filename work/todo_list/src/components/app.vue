@@ -3,7 +3,7 @@
     <div class="todo-container">
       <div class="todo-wrap">
         <todo-header :todos="todos"></todo-header>
-        <todo-main :todos="todos"></todo-main>
+        <todo-main :todos="todos" :delete-todo="deleteTodo"></todo-main>
         <todo-footer></todo-footer>
       </div>
     </div>
@@ -18,6 +18,12 @@ export default {
   data () {
     return {
       todos: [{isDone: false, title: '吃饭'}, {isDone: true, title: '睡觉'}]
+    }
+  },
+  methods: {
+    deleteTodo (todo) {
+      const index = this.todos.indexOf(todo);
+      this.todos.splice(index,1);
     }
   },
   components: {
