@@ -30,7 +30,7 @@ export default {
     },
     deleteItem () {
       // const {deleteTodo, todo} = this
-      if (confirm(`确定删除${this.todo.title}吗？`)){
+      if (confirm(`确定删除${this.todo.title}吗？`)) {
         this.deleteTodo(this.todo)
       }
     }

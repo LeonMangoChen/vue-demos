@@ -1,15 +1,37 @@
 <template>
     <div class="todo-footer">
         <label>
-            <input type="checkbox">
+            <input type="checkbox" v-model="isAllDone"/>
         </label>
-        <span>已完成0</span> / 全部2
-        <button class="btn btn-danger">清除已完成任务</button>
+        <span>已完成{{doneCount}}</span> / 全部{{totalCount}}
+        <button class="btn btn-danger" @click="deleteItem" v-show="doneCount>0">清除已完成任务</button>
     </div>
 </template>
 
 <script>
 export default {
+  props: ['todos', 'deleteDones', 'updataTodos'],
+  methods: {
+    deleteItem () {
+      this.deleteDones()
+    }
+  },
+  computed: {
+    doneCount () {
+      return this.todos.filter(todo => todo.isDone).length
+    },
+    totalCount () {
+      return this.todos.length
+    },
+    isAllDone: {
+      get () {
+        return this.todos.filter(todo => !todo.isDone).length === 0 && this.todos.length > 0
+      },
+      set (value) {
+        this.updataTodos(value)
+      }
+    }
+  }
 }
 </script>
 

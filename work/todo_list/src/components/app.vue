@@ -4,7 +4,7 @@
       <div class="todo-wrap">
         <todo-header :todos="todos"></todo-header>
         <todo-main :todos="todos" :delete-todo="deleteTodo"></todo-main>
-        <todo-footer></todo-footer>
+        <todo-footer :todos="todos" :delete-dones="deleteDones" :updata-todos="updataTodos"></todo-footer>
       </div>
     </div>
   </div>
@@ -22,8 +22,14 @@ export default {
   },
   methods: {
     deleteTodo (todo) {
-      const index = this.todos.indexOf(todo);
-      this.todos.splice(index,1);
+      const index = this.todos.indexOf(todo)
+      this.todos.splice(index, 1)
+    },
+    updataTodos (isDone) {
+      this.todos.forEach(todo => { todo.isDone = isDone })
+    },
+    deleteDones () {
+      this.todos = this.todos.filter(todo => !todo.isDone)
     }
   },
   components: {

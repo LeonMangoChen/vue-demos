@@ -1,5 +1,6 @@
 <template>
     <ul class="todo-main">
+        <!--eslint-disable-next-line-->
         <todo-item v-for="todo in todos" :todo="todo" :delete-todo="deleteTodo"></todo-item>
     </ul>
 </template>
