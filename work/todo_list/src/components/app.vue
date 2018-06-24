@@ -14,11 +14,17 @@
 import todoHeader from './todoHeader'
 import todoMain from './todoMain'
 import todoFooter from './todoFooter'
+import todoStorage from '../util/todoStorage'
 export default {
   data () {
     return {
-      todos: [{isDone: false, title: '吃饭'}, {isDone: true, title: '睡觉'}]
+      // todos: [{isDone: false, title: '吃饭'}, {isDone: true, title: '睡觉'}]
+      todos: []
     }
+  },
+  created () {
+    // 模拟异步请求获取数据
+    this.todos = todoStorage.get() // 读取保存的todos
   },
   methods: {
     deleteTodo (todo) {
@@ -30,6 +36,12 @@ export default {
     },
     deleteDones () {
       this.todos = this.todos.filter(todo => !todo.isDone)
+    }
+  },
+  watch: {
+    'todos': {
+      handler: todoStorage.set, // 当todos有任何变化就会调用-->保存todos
+      deep: true
     }
   },
   components: {
